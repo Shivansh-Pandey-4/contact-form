@@ -37,7 +37,7 @@ export default function FormClient() {
 
                             <div className="flex flex-col gap-1.5">
                                 <Label htmlFor="message">Message</Label>
-                                <Textarea id="message" name="message" placeholder="enter your message? 🤔" />
+                                <Textarea required id="message" name="message" placeholder="enter your message? 🤔" />
                             </div>
                             <Button className="cursor-pointer">Send Message</Button>
                         </div>
