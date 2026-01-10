@@ -4,7 +4,7 @@ export interface State {
         name ?: string;
         subject ?: string;
         message ?: string;
-     }
+     } | string;
 
      success ?: boolean;
      msg ?: string;
