@@ -8,4 +8,5 @@ export interface State {
 
      success ?: boolean;
      msg ?: string;
+     submitNo : number;
 }

@@ -20,6 +20,7 @@ export async function createUser(prevState: State, formData: FormData){
         message: !message ? "message not provided" : undefined,
       },
       msg: "All fields are required",
+      submitNo : prevState.submitNo +1
     };
   }
 
@@ -38,6 +39,7 @@ export async function createUser(prevState: State, formData: FormData){
     return {
       success: true,
       msg: "Message sent successfully",
+      submitNo: prevState.submitNo + 1
     };
   } catch (error) {
     if (
@@ -47,13 +49,15 @@ export async function createUser(prevState: State, formData: FormData){
       return {
         success: false,
         msg: "This email has already been used",
+        submitNo : prevState.submitNo + 1
       };
     }
 
     return {
       success: false,
       msg: "Server issue: failed to send message",
-      error : error instanceof Error ? error.message : "issue is unknown"
+      error : error instanceof Error ? error.message : "issue is unknown",
+      submitNo : prevState.submitNo + 1
     };
   }
 }

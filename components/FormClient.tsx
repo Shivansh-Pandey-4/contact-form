@@ -1,17 +1,18 @@
 "use client";
 
 import { useActionState, useEffect } from "react";
+import { createUser } from "@/actions/action";
+import { State } from "@/lib/types";
+import { toast } from "react-toastify";
+
 import { Button } from "./ui/button";
 import { Card, CardHeader, CardContent, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
-import { createUser } from "@/actions/action";
-import { State } from "@/lib/types";
-import { toast } from "react-toastify";
 
 
-const initialState: State = {};
+const initialState: State = { submitNo: 0 };
 
 export default function FormClient() {
 
@@ -25,7 +26,7 @@ export default function FormClient() {
         if (state.success === true) {
             toast.success(state.msg);
         }
-    }, [state.error])
+    }, [state.submitNo])
 
     return (
         <div>
