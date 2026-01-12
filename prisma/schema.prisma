@@ -7,10 +7,17 @@ datasource db {
   provider = "postgresql"
 }
 
+enum ContactStatus {
+  new
+  read
+  replied
+}
+
 model ContactForm {
-  id      Int    @id @default(autoincrement())
-  name    String @db.VarChar(100)
-  email   String @unique @db.VarChar(255)
-  subject String @db.VarChar(300)
+  id      Int           @id @default(autoincrement())
+  name    String        @db.VarChar(100)
+  email   String        @unique @db.VarChar(255)
+  subject String        @db.VarChar(300)
   message String
+  status  ContactStatus @default(new)
 }
