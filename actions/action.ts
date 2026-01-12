@@ -61,3 +61,25 @@ export async function createUser(prevState: State, formData: FormData){
     };
   }
 }
+
+
+export async function getContactForm(){
+
+    try {
+       const allContacts = await prisma.contactForm.findMany();
+       return {
+         success : true,
+         msg : "all contact forms",
+         allContacts
+       }
+
+    } catch (error) {
+      console.log(error);
+      
+      return {
+         success : false,
+         msg : "something went wrong",
+         error : error instanceof Error ? error.message : "unknown currently"
+      }
+    }
+}

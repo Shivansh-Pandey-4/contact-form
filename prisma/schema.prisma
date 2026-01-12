@@ -14,10 +14,12 @@ enum ContactStatus {
 }
 
 model ContactForm {
-  id      Int           @id @default(autoincrement())
-  name    String        @db.VarChar(100)
-  email   String        @unique @db.VarChar(255)
-  subject String        @db.VarChar(300)
-  message String
-  status  ContactStatus @default(new)
+  id        Int           @id @default(autoincrement())
+  name      String        @db.VarChar(100)
+  email     String        @unique @db.VarChar(255)
+  subject   String        @db.VarChar(300)
+  message   String
+  status    ContactStatus @default(new)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
 }
