@@ -1,4 +1,4 @@
-import { getContactForm } from "@/actions/action";
+import { getContactForm, updateContactStatus } from "@/actions/action";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Mail } from "lucide-react";
@@ -45,12 +45,18 @@ export default async function ContactList() {
                                         <div className="border-t flex justify-between">
                                             <h1 className="mt-3 text-sm text-gray-400">Date - {contact.createdAt.toString()}</h1>
                                             {
-                                                contact.status === "new" && <form >
-                                                    <Button type="submit" value={"read"} name="btn" className="mt-3 cursor-pointer" size={"sm"}>Mark as Read</Button>
+                                                contact.status === "new" && <form action={async (formData: FormData) => {
+                                                    "use server";
+                                                    const input = await updateContactStatus(contact.id, formData);
+                                                }} >
+                                                    <Button type="submit" value="read" name="btn" className="mt-3 cursor-pointer" size={"sm"}>Mark as Read</Button>
                                                 </form>
                                             }
                                             {
-                                                contact.status === "read" && <form>
+                                                contact.status === "read" && <form action={async (formData: FormData) => {
+                                                    "use server";
+                                                    await updateContactStatus(contact.id, formData);
+                                                }}>
                                                     <Button value={"replied"} name="btn" type="submit" className="mt-3 cursor-pointer" size={"sm"}>Mark as Replied</Button>
                                                 </form>
                                             }
