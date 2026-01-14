@@ -13,6 +13,9 @@ export default function Home() {
       <section>
         <FormClient />
       </section>
+      <section className="my-10">
+        <p className="text-gray-600">This website created with 💗 by Shivansh Pandey. </p>
+      </section>
     </div>
   );
 }

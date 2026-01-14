@@ -10,6 +10,7 @@ import { Card, CardHeader, CardContent, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
+import { useRouter } from "next/navigation";
 
 
 const initialState: State = { submitNo: 0 };
@@ -17,6 +18,7 @@ const initialState: State = { submitNo: 0 };
 export default function FormClient() {
 
     const [state, action, isPending] = useActionState(createUser, initialState);
+    const router = useRouter();
 
     useEffect(() => {
         if (state.success === false) {
@@ -25,6 +27,7 @@ export default function FormClient() {
 
         if (state.success === true) {
             toast.success(state.msg);
+            router.push("/contacts");
         }
     }, [state.submitNo])
 
