@@ -14,13 +14,11 @@ Users can submit contact form, and can view, mark messages as **read** or **repl
 - 🔗 **Prisma ORM**
 - 🎨 **shadcn/ui** components
 - ♻️ **Revalidation / cache updates**
-  
 - 📝 Contact form with:
   - Name
   - Email
   - Subject
   - Message
-    
 - 📬 Message dashboard:
   - Showing all message as cards
   - User can mark the message as **Read**
@@ -38,6 +36,7 @@ Users can submit contact form, and can view, mark messages as **read** or **repl
 - **Deployment-ready:** Vercel / any Node-compatible host
 
 ---
+
 ## Clone the repository
 
 ```
@@ -48,10 +47,13 @@ Users can submit contact form, and can view, mark messages as **read** or **repl
 ## Set up environment variables
 
 Create a .env file:
+
 ```
 DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE"
 ```
+
 # Run Prisma migrations
+
 ```
 npx prisma migrate dev
 npx prisma generate
@@ -60,10 +62,9 @@ npx prisma generate
 ## 📸 Screenshots
 
 ### Contact Form
-![Contact Form](./screenshots/contact-form.png)
 
-### Messages Dashboard
-![Messages Dashboard](./screenshots/messages-dashboard.png)
+![Contact Form](./screenshots/home.png)
 
 ### Message Card Actions
+
 ![Message Card](./screenshots/message-card.png)
